@@ -28,6 +28,10 @@ h3 {font-size: 18px;}
 
 p {margin: 0 0 20px;}
 
+a {color: currentColor;}
+
+a:hover {text-decoration: none;}
+
 hr {
   border: none;
   width: 30px;
@@ -259,14 +263,14 @@ blockquote cite:before {
 
 .project-introduction p {
   font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
   line-height: 1.4;
   color: #999;
   text-align: left;
 }
 
-.project-introduction a {
+.project-introduction .back {
   position: absolute;
   left: 20px;
   top: 20px;
@@ -452,6 +456,15 @@ input:hover, textarea:hover, input:focus, textarea:focus {
   height: 150px;
   margin-bottom: 40px;
 }
+
+
+/**
+ * rug
+ */
+
+.section.rug img {float: left;}
+
+
 
 
 /* ====================================================================================================================
