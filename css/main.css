@@ -1,5 +1,5 @@
 html {
-  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.2;
 }
@@ -9,20 +9,46 @@ html {
  * Headings
  */
 
-h1, h2, h3, h4 {margin: 0 0 10px;}
-
-h1 {
-  font-size: 50px;
-  margin-bottom: 40px;
+h1, h2, h3, h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin: 0 0 10px;
 }
 
-h2 {font-size: 40px;}
+h1 {
+  display: block;
+  font-size: 38px;
+  margin: 0 auto 30px;
+  line-height: 1.4;
+}
 
-h3 {font-size: 20px;}
+h2 {font-size: 32px;}
 
-p {margin: 0 0 10px;}
+h3 {font-size: 18px;}
+
+p {margin: 0 0 20px;}
+
+hr {
+  border: none;
+  width: 30px;
+  margin-bottom: 60px;
+}
+
+hr:after {
+  content: "";
+  background: #ddd;
+  height: 2px;
+  display: block;
+}
+
+.img-responsive {
+  display: block;
+  width: 80%;
+  margin: 0 auto 40px;
+}
 
 .intro-text {
+  margin: 0 auto 40px;
   font-size: 18px;
   line-height: 1.4;
 }
@@ -32,7 +58,13 @@ p {margin: 0 0 10px;}
   margin: 0 auto;
 }
 
+.container--wide {
+  max-width: 1600px;
+}
+
 .container--skinny {max-width: 800px;}
+
+.container--ultra-skinny {max-width: 600px;}
 
 
 /**
@@ -43,22 +75,38 @@ nav {
   background: #222;
   padding: 20px;
   position: fixed;
-  top: 40px;
+  z-index: 10;
+  top: 0;
   right: 0;
+  left: 0;
+  text-align: center;
 }
 
 nav a {
+  position: relative;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: bold;
-  margin-right: 20px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid transparent;
+  margin: 10px 20px 6px;
 }
 
-nav a:hover {
-  border-color: white;
+nav a:after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: white;
+  display: block;
+  margin: 6px auto 0;
+  transition: 0.15s all ease;
+}
+
+nav a:hover:after {
+  width: 100%;
 }
 
 
@@ -82,8 +130,8 @@ nav a:hover {
  */
 
 .introduction {
-  background: #222;
-  background-image: url('img/bg.jpg');
+  background-color: #222;
+  /* background-image: url('../img/background.jpg'); */
   background-size: cover;
   background-position: center;
   color: white;
@@ -93,7 +141,7 @@ nav a:hover {
 
   .introduction_content {
     transform: translateY(-10%);
-    max-width: 800px;
+    max-width: 700px;
     align-self: center;
     margin: 0 auto;
     line-height: 1.4;
@@ -104,7 +152,7 @@ nav a:hover {
     left: 50%;
     transform: translateX(-50%);
     bottom: 60px;
-    width: 40px;
+    width: 35px;
     fill: white;
     animation: bounce 1s infinite;
   }
@@ -123,16 +171,27 @@ nav a:hover {
 .process {
   display: flex;
   flex-basis: 1;
+  max-width: 1000px;
+  margin: 0 auto;
   list-style: none;
   justify-content: space-between;
   text-align: center;
 }
 
-.process li {max-width: 300px;}
+.process li {
+  max-width: 250px;
+}
+
+.process p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.3;
+}
 
 .process svg {
   height: 100px;
   margin-bottom: 20px;
+  fill: currentColor;
 }
 
 
@@ -182,6 +241,46 @@ blockquote cite:before {
 
 
 /**
+ * Project
+ */
+
+.project {}
+
+.project__desc {
+  font-size: 18px;
+  text-align: left;
+  line-height: 1.3;
+}
+
+.project-introduction {
+  padding: 80px 0 40px;
+  text-align: center;
+}
+
+.project-introduction p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #999;
+  text-align: left;
+}
+
+.project-introduction a {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+
+/**
  * Gallery
  */
 
@@ -194,6 +293,11 @@ blockquote cite:before {
     width: 33.3333%;
     padding: 0 40px 40px 0;
     box-sizing: border-box;
+  }
+
+  .gallery_item a {
+    text-decoration: none;
+    color: currentColor;
   }
 
   .gallery_item img {
@@ -209,3 +313,237 @@ blockquote cite:before {
     color: #999;
     font-size: 16px;
   }
+
+
+
+/**
+ * CTA
+ */
+
+.contact {
+
+}
+
+.button {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  display: inline-block;
+  background: #222;
+  color: white;
+  padding: 20px 25px;
+  min-width: 100px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+}
+
+.button:hover, .button:focus {
+  background: #000;
+  outline: none;
+}
+
+
+/**
+ * Modal
+ */
+
+.modal {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s opacity ease;
+}
+
+.modal.isOpen {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal_body {
+    position: fixed;
+    background: white;
+    width: 80%;
+    height: auto;
+    min-height: 600px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.9);
+    text-align: center;
+    padding: 20px;
+    transition: 0.2s transform ease;
+}
+
+.modal__body__heading {
+    margin: 60px 0 40px;
+    font-size: 30px;
+}
+
+.modal__body__heading:after {
+    content: "";
+    height: 3px;
+    width: 60px;
+    display: block;
+    margin: 30px auto 0;
+    background: #eee;
+    border-radius: 10px;
+}
+
+.modal_body_close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    color: #999;
+    padding: 20px;
+    outline: none;
+}
+
+.modal.isOpen .modal_body {
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+body.modalIsOpen {
+    overflow: hidden;
+}
+
+
+/**
+ * Form
+ */
+
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+input:hover, textarea:hover, input:focus, textarea:focus {
+  background: white;
+  border-color: #333;
+  outline: none;
+}
+
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form_textarea {
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 40px;
+}
+
+
+/* ====================================================================================================================
+ * FLEX SLIDER
+ * ====================================================================================================================*/
+
+.flexslider {
+  position: relative;
+  padding: 0 0 40px;
+}
+
+.flexslider .slides {
+  padding: 0;
+}
+
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+.flexslider .slides img {
+  display: block;
+  margin: 0 auto;
+}
+
+.flexslider .flex-viewport:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(to right, rgba(248,248,248,1) 50%, rgba(248,248,248,0) 100%);
+  z-index: 20;
+}
+
+.flexslider .flex-viewport:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(to left, rgba(248,248,248,1) 50%, rgba(248,248,248,0) 100%);
+  z-index: 20;
+}
+
+.flex-direction-nav {display: none;}
+
+.flex-control-nav {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+}
+
+.flex-control-nav li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.flex-control-nav a {
+  display: inline-block;
+  font-size: 0;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 100%;
+}
+
+.flex-control-nav a.flex-active {
+  background: #222;
+}
+
+html[xmlns] .flexslider .slides {
+  display: block;
+}
+* html .flexslider .slides {
+  height: 1%;
+}
+.no-js .flexslider .slides > li:first-child {
+  display: block;
+}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {
+    opacity: 1;
+    left: 10px;
+  }
+  .flex-direction-nav .flex-next {
+    opacity: 1;
+    right: 10px;
+  }
+}
