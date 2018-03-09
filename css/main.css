@@ -113,9 +113,11 @@ hr:after {
 }
 
 .intro-text {
-  margin: 0 auto 40px;
-  font-size: 18px;
+  margin: 0 auto 20px;
+  font-size: 20px;
+  font-weight: normal;
   line-height: 1.4;
+  color: #999;
 }
 
 .text-gray {color: #777;}
@@ -341,7 +343,7 @@ hr:after {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 60px;
+    bottom: 80px;
     width: 35px;
     fill: white;
     animation: bounce 1s infinite;
@@ -391,10 +393,14 @@ hr:after {
 }
 
 .process svg {
-  height: 100px;
+  height: 80px;
   margin-bottom: 20px;
   fill: currentColor;
 }
+
+svg.svg-book { width: 70px; }
+
+svg.svg-iterate { width: 70px; }
 
 @media only screen and (max-width: 500px) {
   .process {display: block;}
