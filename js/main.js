@@ -1,27 +1,28 @@
 $(document).ready(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    animationLoop: false,
-    animationSpeed: 800,
-    slideshowSpeed: 5000,
-    directionNav: true
-  });
 
-  $('[data-js-open-modal]').click(function() {
-      openModal();
-  });
 
-  $('[data-js-modal-close]').click(function() {
-      closeModal();
-  });
+  // If slider exists on this page
+  if ( $('.flexslider').length > 0 ) {
+
+      // Activate slider
+      $('.flexslider').flexslider({
+        animation: "slide",
+        animationLoop: false,
+        animationSpeed: 800,
+        slideshowSpeed: 5000,
+        directionNav: true
+      });
+  }
 });
 
-function openModal() {
-    $('body').addClass('modalIsOpen');
-    $('[data-js-modal]').addClass('isOpen');
-}
+$(window).scroll(function (event) {
+    var nav = $('.Nav');
+        navHeight = nav.height(),
+        position = $(window).scrollTop();
 
-function closeModal() {
-    $('body').removeClass('modalIsOpen');
-    $('[data-js-modal]').removeClass('isOpen');
-}
+    if (position > navHeight) {
+        nav.addClass('Nav--dark');
+    } else {
+        nav.removeClass('Nav--dark');
+    }
+});
